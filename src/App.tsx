@@ -1,3 +1,6 @@
+import { ModeToggle } from "@/components/mode-toggle"
+import { Button } from "@/components/ui/button"
+
 const people = [
   {
     name: 'Calvin Hawkins',
@@ -21,16 +24,20 @@ const people = [
 
 export default function App() {
   return (
-    <ul className="divide-y divide-gray-200">
-      {people.map((person) => (
-        <li key={person.email} className="py-4 flex">
-          <img className="h-10 w-10 rounded-full" src={person.image} alt="" />
-          <div className="ml-3">
-            <p className="text-sm font-medium text-gray-900">{person.name}</p>
-            <p className="text-sm text-gray-500">{person.email}</p>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div className="p-6 max-w-4xl mx-auto">
+      <ModeToggle />
+      <ul className="divide-y divide-gray-200">
+        {people.map((person) => (
+          <li key={person.email} className="py-4 flex">
+            <img className="h-10 w-10 rounded-full" src={person.image} alt="" />
+            <div className="ml-3">
+              <p className="text-sm font-medium text-gray-900">{person.name}</p>
+              <p className="text-sm text-gray-500">{person.email}</p>
+            </div>
+          </li>
+        ))}
+        <Button>Add Person</Button>
+      </ul>
+    </div>
   )
 }
